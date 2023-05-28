@@ -1,6 +1,8 @@
 from flask import Flask, render_template, Response, jsonify, redirect, url_for
 from flask import request
 from camera import VideoCamera
+from detect import detect_img
+import numpy as np
 
 
 
@@ -33,13 +35,13 @@ def gen(camera):
         
 @app.route('/up_load', methods=["POST"])
 def up_load():
-    global NOW_IDX
-    NOW_IDX = 0
+    global i
+    i = 0
     uploaded_files = request.files["file"]
-    uploaded_files.save("static/img/{}.jpeg".format(NOW_IDX))
-    print(uploaded_files)
-    NOW_IDX += 1
-    return redirect(url_for("index"))
+    uploaded_files.save("static/img/detect{}.jpeg".format(i))
+    img, ret = detect_img("static/img/detect{}.jpeg".format(i)) #img 얼굴 사진, ret 결과
+    i+=1
+    return render_template('result.html',ret = ret, i=i-1, img=img)
 
 
 
