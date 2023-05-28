@@ -16,6 +16,14 @@
 
 
 <div>
+  <form method="POST" enctype="multipart/form-data" action="{{url_for('up_load')}}">
+    <input type="file" name="file"/>
+    <input type="submit"/>
+  </form>
+</div>
+
+
+<div>
   <img  width="100%" height="100%" src="{{ url_for('video_feed') }}" />
 </div>
 
