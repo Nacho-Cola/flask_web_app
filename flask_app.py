@@ -4,11 +4,6 @@ from camera import VideoCamera
 from detect import detect_img
 import numpy as np
 
-
-
-playlist = ['tx1QSKI1UPs','i0RCcSBPjuU','6dDdkDifAxM']
-
-
 app = Flask(__name__)
 
 video_stream = VideoCamera()
