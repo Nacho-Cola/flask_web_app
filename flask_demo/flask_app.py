@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response, jsonify, redirect, url_for
+from flask import Flask, render_template, Response
 from flask import request
 from camera import VideoCamera
 from detect import detect_img
@@ -53,4 +53,4 @@ def video_feed():
 
 if __name__ == '__main__':
 
-    app.run(debug=True)
+    app.run(host="0.0.0.0", debug=True)
