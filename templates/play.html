@@ -24,10 +24,88 @@
 
 
 <div>
-  <img  width="100%" height="100%" src="{{ url_for('video_feed') }}" />
+  <img  width="100%" height="100%" src="{{ url_for('send_pic') }}" />
+
+  <video autoplay="true" id="videoElement"></video>
+
+  <canvas class="canvas" id="mirrored" method="POST"></canvas>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script>
+      document.getElementById('videoElement').style.display = 'none'
+      
+      document.addEventListener("DOMContentLoaded", () => {
+        new App();
+      })
+
+      class App {
+        constructor() {
+
+          const video = document.querySelector("#videoElement");
+
+          if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+              .then( (stream) => { // function 의 this와 화살표 함수의 this 가 다름
+                video.srcObject = stream;
+              })
+              .catch(function (error) {
+                console.log("Something went wrong!");
+                console.log(error);
+                return;
+              });
+          }
+
+          video.addEventListener( "loadedmetadata", () => {
+            window.requestAnimationFrame(this.draw.bind(this));
+          });
+        }
+
+        draw(t) {
+
+          window.requestAnimationFrame(this.draw.bind(this));
+          
+          const canvas = document.querySelector("#mirrored");
+          const video = document.querySelector("#videoElement");
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
+
+          const ctx = canvas.getContext('2d');
+
+          ctx.translate(video.videoWidth, 0);
+          ctx.scale(-1,1);
+          ctx.drawImage(video, 0, 0,video.videoWidth,video.videoHeight);  
+
+          document.body.appendChild(canvas); 
+          
+            var data = canvas.toDataURL('image/png')
+
+            $.ajax({ 
+              type: "POST",
+              url: "/send_pic",
+              data: data ,
+              contentType: false,
+              processData: false,
+              success: function (data) {
+              if (data.success) {
+                  //alert('Your file was successfully uploaded!');
+              } else {
+                // alert('There was an error uploading your file!');
+              }
+          },
+          error: function (data) {
+              console.log('There was an error uploading your file!');
+          }
+      }).done(function () {
+          console.log("Sent");
+      });
+
+    }
+  }
+    
+
+        
+  </script>
+
 </div>
 
 
 {% endblock %}
-
-

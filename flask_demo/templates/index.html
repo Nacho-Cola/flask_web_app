@@ -1,0 +1,27 @@
+{% extends "base.html"%}
+{% block content %}
+<div class="video-container">
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLVI3CAcQB7GM7pBqn8WYVkSKn2QfUbS2E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+<div class="jumbotron">
+  <!-- #입력 form을 추가 하고 “report” 페이지로 연결한다. -->
+  <form action="{{url_for('play')}}">
+    <label for="first">YouTube ID or list ID :</label>
+    <input type="text" name="ytid">
+    <!-- #submit 버튼을 추가한다. -->
+    <input class="btn btn-primary" type="submit" value="Submit Form">
+  </form>
+</div>
+
+<div>
+  <form method="POST" enctype="multipart/form-data" action="{{url_for('up_load')}}">
+    <input type="file" name="file"/>
+    <input type="submit"/>
+  </form>
+</div>
+
+
+{% endblock %}
+
+

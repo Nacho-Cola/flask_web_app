@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>EYE PLUS+</title>
+  <link rel="stylesheet" type="text/css" href="static/style.css">
+  <!--bootstrap css 적용--> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!--bootstrap js 적용-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+    <!--bootstrap Navigation bar 적용(그냥 복붙 하면 됨.)-->
+    <nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="{{url_for('index')}}">EYE PLUS+</a>
+    </nav>
+  
+    {% block content %}
+    {% endblock %}   
+</body>
+</html>

@@ -57,6 +57,7 @@ def detect(frame):
         cv.circle(frame, center_left, int(l_radius), (0,255,0), 1, cv.LINE_AA)
         cv.circle(frame, center_right, int(r_radius), (0,255,0), 1, cv.LINE_AA) 
 
+        global  dis_frame
         dis_frame = frame
 
 
