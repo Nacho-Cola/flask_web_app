@@ -44,6 +44,7 @@ def detect(frame):
       rgb_frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB) #BGR 이미지를 RGB로 변환
       img_h, img_w = frame.shape[:2]                   #img 크기
       results = face_mesh.process(rgb_frame)
+      
 
       if results.multi_face_landmarks:
 
@@ -132,6 +133,9 @@ def detect(frame):
 
                     
                 # Display the annotated frame
+      else:
+         return frame
+           
             
   return dis_frame
 
