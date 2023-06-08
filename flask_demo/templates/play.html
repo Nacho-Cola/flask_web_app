@@ -7,18 +7,18 @@
 <div class="jumbotron">
   <!-- #입력 form을 추가 하고 “report” 페이지로 연결한다. -->
   <form action="{{url_for('play')}}">
-  <label for="first">YouTube ID or List ID: </label>
+  <label for="first" class="form-text" >YouTube ID or List ID: </label>
   <input type="text" name="ytid">
   <!-- #submit 버튼을 추가한다. -->
-  <input class="btn btn-primary" type="submit" value="Submit Form">
+  <input class="btn btn-primary form-text" type="submit" value="Submit Form">
   </form> 
 </div>
 
 
-<div>
+<div class="jumbotron">
   <form method="POST" enctype="multipart/form-data" action="{{url_for('up_load')}}">
     <input type="file" name="file"/>
-    <input type="submit"/>
+    <input class="form-text" type="submit"/>
   </form>
 </div>
 

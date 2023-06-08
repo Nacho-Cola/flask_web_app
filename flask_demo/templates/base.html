@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>EYE PLUS+</title>
   <link rel="stylesheet" type="text/css" href="static/style.css">
   <!--bootstrap css 적용--> 
@@ -12,11 +13,14 @@
 </head>
 <body>
     <!--bootstrap Navigation bar 적용(그냥 복붙 하면 됨.)-->
-    <nav class="navbar navbar-dark bg-primary">
-    <a class="navbar-brand" href="{{url_for('index')}}">EYE PLUS+</a>
-    </nav>
+    <!-- <nav class="navbar navbar-dark bg-primary">
+      <a class="navbar-brand" id="title" href="{{url_for('index')}}" >EYE PLUS+</a>
+    </nav> -->
   
     {% block content %}
     {% endblock %}   
+    <div>
+      <a href="http://54.89.193.0" class="btn btn-primary form-text" id="com">Community</a>
+    </div>
 </body>
 </html>

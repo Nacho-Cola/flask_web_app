@@ -10,3 +10,23 @@
   width: 100%;
   height: 100%;
 }
+#id-btn{
+  padding: 10px;
+}
+
+.form-text{
+  font-size: 1em;
+}
+
+.navbar{
+  height: 5em;
+}
+#title{
+  font-size: 3em;
+}
+
+#com{
+  font-size: 2rem;
+  width: 100%;
+  padding: 15px;
+}

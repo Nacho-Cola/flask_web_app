@@ -25,7 +25,7 @@ def index():
 @app.route('/play')
 def play():
     ytid = request.args.get('ytid')
-    return render_template('play.html',ytid=ytid)  
+    return render_template('play.html',ytid=ytid)
 
 def gen(camera):
     while True:
